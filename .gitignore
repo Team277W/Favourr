@@ -1,2 +1,3 @@
 backend/.env
+backend/dbinit.sql
 backend/noxfile_config.py
