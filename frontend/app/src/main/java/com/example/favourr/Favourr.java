@@ -1,13 +1,11 @@
 package com.example.favourr;
 
-import android.location.Location;
-
-public class Favour {
+public class Favourr {
 
     private String title, description, deadline, location;
     double bountyPrice;
 
-    public Favour(String title, double bountyPrice, String description, String deadline, String location) {
+    public Favourr(String title, double bountyPrice, String description, String deadline, String location) {
         this.title = title;
         this.bountyPrice = bountyPrice;
         this.description = description;

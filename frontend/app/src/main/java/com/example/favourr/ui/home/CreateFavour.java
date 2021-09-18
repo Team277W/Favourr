@@ -4,12 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.favourr.Favour;
+import com.example.favourr.Favourr;
 import com.example.favourr.R;
 
 import java.util.Objects;
@@ -27,7 +26,7 @@ public class CreateFavour extends AppCompatActivity {
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Favour favour = new Favour();
+                Favourr favourr = new Favourr();
             }
         }
 

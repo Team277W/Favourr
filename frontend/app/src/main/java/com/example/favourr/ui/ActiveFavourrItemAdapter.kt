@@ -3,6 +3,7 @@ package com.example.favourr.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.favourr.Favourr
 import com.example.favourr.databinding.ItemActiveFavourrBinding
 
 class ActiveFavourrItemAdapter(private val favourrs: List<Favourr>) :
