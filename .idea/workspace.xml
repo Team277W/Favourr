@@ -21,12 +21,112 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/main" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/jia-ming" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37244c0a-b5bc-40a4-b245-24658b224b88" name="Default Changelist" comment="" />
+    <list default="true" id="37244c0a-b5bc-40a4-b245-24658b224b88" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/androidTest/java/com/example/test/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/java/com/example/test/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/test/java/com/example/test/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Favourr-frontend/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-backend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-backend/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-backend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/models/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/models/dfg.raw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/models/pawn.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/models/pawn_albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/models/pawn_roughness_metallic_ao.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/models/trigrid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/ambient_intensity.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/ambient_intensity.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/background_show_camera.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/background_show_camera.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/background_show_depth_color_visualization.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/background_show_depth_color_visualization.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/cubemap_filter.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/cubemap_filter.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/environmental_hdr.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/environmental_hdr.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/occlusion.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/occlusion.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/plane.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/plane.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/point_cloud.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/assets/shaders/point_cloud.vert" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/helpers/CameraPermissionHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/helpers/DepthSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/helpers/DisplayRotationHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/helpers/FullScreenHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/helpers/InstantPlacementSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/helpers/SnackbarHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/helpers/TapHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/helpers/TrackingStateHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/Framebuffer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/GLError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/GpuBuffer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/IndexBuffer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/Mesh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/SampleRender.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/Shader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/Texture.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/VertexBuffer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/arcore/BackgroundRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/arcore/PlaneRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/common/samplerender/arcore/SpecularCubemapFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/java/com/google/ar/core/examples/java/helloar/HelloArActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/res/drawable-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/res/drawable-xxhdpi/ic_settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/res/menu/settings_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-frontend/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-frontend/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-frontend/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-frontend/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-frontend/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleAR-frontend/settings.gradle" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +136,11 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GithubPullRequestsUISettings">
@@ -62,7 +167,6 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/ScrabbleAR-frontend" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
@@ -96,7 +200,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="origin/jia-ming" />
                       </list>
                     </value>
                   </entry>
@@ -107,9 +211,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="rename to favourr" />
+    <MESSAGE value="rename to favourr + replace frontend with empty template" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename to favourr + replace frontend with empty template" />
   </component>
   <component name="WindowStateProjectService">
     <state x="533" y="244" key="FileChooserDialogImpl" timestamp="1631939245683">
