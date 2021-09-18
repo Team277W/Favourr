@@ -17,6 +17,10 @@ const bountySchema = new Schema({
         type: String,
         required: [true, "This is a required field!"]
     },
+    city: {
+        type: String,
+        required: [true, "This is a required field!"]
+    },
     cash: {
         type: Number,
         required: [true, "This is a required field!"]
