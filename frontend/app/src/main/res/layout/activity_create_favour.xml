@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.home.CreateFavour">
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="271dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="31dp"
+        android:ems="10"
+        android:hint="Enter Location"
+        android:inputType="textPersonName"
+        android:shadowColor="#000000"
+        android:textColor="#121212"
+        android:textColorHint="#151515"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="271dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="31dp"
+        android:ems="10"
+        android:hint="Bounty Price"
+        android:inputType="textPersonName"
+        android:shadowColor="#000000"
+        android:text="Name"
+        android:textColor="#121212"
+        android:textColorHint="#151515"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="303dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="122dp"
+        android:text="Create a Favourr for your local neighbors to freelance!"
+        android:textColor="#191919"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="269dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="58dp"
+        android:ems="10"
+        android:hint="Favourr Title"
+        android:inputType="textPersonName"
+        android:textColorHint="#121212"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Description"
+        android:textColor="#1C1C1C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+    <EditText
+        android:id="@+id/textArea_information"
+        android:layout_width="252dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="44dp"
+        app:backgroundTint="#000"
+        android:background="@drawable/edittext_bg"
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:overScrollMode="always"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:scrollHorizontally="false"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="265dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textArea_information" />
+
+    <Button
+        android:id="@+id/payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="149dp"
+        android:text="Payment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
