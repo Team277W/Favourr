@@ -21,6 +21,10 @@ const bountySchema = new Schema({
         type: String,
         required: [true, "This is a required field!"]
     },
+    status: {
+        type: Number, // 0 = created 1 = in progress 2 = resolved
+        required: [true, "This is a required field!"]
+    },
     cash: {
         type: Number,
         required: [true, "This is a required field!"]
