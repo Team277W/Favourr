@@ -1,12 +1,5 @@
 package com.example.favourr;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.utils.widget.MockView;
-import androidx.core.app.ActivityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.ui.AppBarConfiguration;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -23,6 +16,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -65,12 +62,16 @@ public class LaunchActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
 
-                    intent.putExtra("Username", userName.getText());
-                    intent.putExtra("Name", name.getText());
+                    intent.putExtra("Username", userName.getText().toString());
+                    intent.putExtra("Name", name.getText().toString());
                     intent.putExtra("City", cityName);
-                    LaunchActivity.this.startActivity(intent);
+                    startActivity(intent);
                 } catch (Exception e){
                     System.out.println(e);
+                    Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+                    intent.putExtra("Username", userName.getText().toString());
+                    intent.putExtra("Name", name.getText().toString());
+                    startActivity(intent);
                 }
 
             }

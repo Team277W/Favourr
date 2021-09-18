@@ -2,6 +2,7 @@ package com.example.favourr
 
 import android.Manifest
 import android.content.Context
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -19,14 +20,17 @@ import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.connection.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.nio.charset.StandardCharsets
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    
+
+
     private lateinit var mainViewModel: MainViewModel
     private lateinit var connectionsClient: ConnectionsClient
     private val discoveredEndpoints = HashMap<String, Endpoint>()
     private val establishedConnections = HashMap<String, Endpoint?>()
     private val pendingConnections = HashMap<String, Endpoint>()
+    private lateinit var sharedPrefs: SharedPreferences
 
     private val connectionLifecycleCallback = object : ConnectionLifecycleCallback() {
         override fun onConnectionInitiated(endpointId: String, connectionInfo: ConnectionInfo) {
@@ -89,6 +93,12 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.state.observe(this, Observer {
             onStateChanged(it)
         })
+
+        sharedPrefs = this.getPreferences(Context.MODE_PRIVATE)
+        val username = intent.extras?.getString("Username") ?: sharedPrefs.getString("Username", "")
+        val name = intent.extras?.getString("Name") ?: sharedPrefs.getString("Name", "") ?: ""
+        val city = intent.extras?.getString("City") ?: sharedPrefs.getString("City", "")
+        mainViewModel.setName(name)
         connectionsClient = Nearby.getConnectionsClient(this)
     }
 
