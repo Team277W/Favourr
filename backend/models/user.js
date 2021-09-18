@@ -14,6 +14,10 @@ const userSchema = new Schema({
     bountiesCreated: {
         type: [mongoose.ObjectId],
         required: [true, "This is a required field!"]
+    },
+    totalCash: {
+        type: Number,
+        required: [true, "This is a required field!"]
     }
 }, { timestamps: true });
 
