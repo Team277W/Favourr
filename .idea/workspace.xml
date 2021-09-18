@@ -27,7 +27,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37244c0a-b5bc-40a4-b245-24658b224b88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Favourr-frontend/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Favourr-frontend/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Favourr-frontend/app/src/main/java/com/example/test/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/java/com/example/favourr/activities/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Favourr-frontend/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631969436657</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="rename to favourr + replace frontend with empty template">
+      <created>1631969496110</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631969496111</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,9 +140,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="rename to favourr + replace frontend with empty template" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="244" key="FileChooserDialogImpl" timestamp="1631939245683">
+    <state x="533" y="244" key="FileChooserDialogImpl" timestamp="1631969182708">
       <screen x="0" y="0" width="1504" height="1003" />
     </state>
-    <state x="533" y="244" key="FileChooserDialogImpl/0.0.1504.1003/2256.13.2560.1440@0.0.1504.1003" timestamp="1631939245683" />
+    <state x="533" y="244" key="FileChooserDialogImpl/0.0.1504.1003/2256.13.2560.1440@0.0.1504.1003" timestamp="1631969182708" />
+    <state x="415" y="216" width="672" height="678" key="search.everywhere.popup" timestamp="1631969321679">
+      <screen x="0" y="0" width="1504" height="1003" />
+    </state>
+    <state x="415" y="216" width="672" height="678" key="search.everywhere.popup/0.0.1504.1003/2256.13.2560.1440@0.0.1504.1003" timestamp="1631969321679" />
   </component>
 </project>
