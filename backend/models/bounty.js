@@ -13,13 +13,15 @@ const bountySchema = new Schema({
         type: String,
         required: [true, "This is a required field!"]
     },
+    contact: {
+        type: String,
+        required: [true, "This is a required field!"]
+    },
     cash: {
         type: Number,
         required: [true, "This is a required field!"]
     }
 }, { timestamps: true });
-
-bountySchema.index({title: 'text', subtitle: 'text'});
 
 // Model
 const Bounty = mongoose.model('Bounty', bountySchema);
