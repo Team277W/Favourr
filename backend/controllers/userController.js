@@ -4,19 +4,19 @@ const get = (req, res, next) => {
     return res.json({ message: "Hello 277 Lester" });
 }
 
-const getUserName = async (req, res, next) => {
+const getUser = async (req, res, next) => {
     // let allBounties;
     let user;
     try {
         // allBounties = await Bounty.find();
-        userName = await User.findById(id);
+        user = await User.findOne({ userName: req.params.name });
         // console.log(allBounties);
     } catch (err) {
         next(err);
     }
         
     return res.json({ 
-        userName: user.userName,
+        user: user,
         message: "Username" 
     });
 }
@@ -26,7 +26,7 @@ const getUserAccepted = async (req, res, next) => {
     let user;
     try {
         // allBounties = await Bounty.find();
-        user = await User.findById(id);
+        user = await User.findOne({ userName: req.params.name });
         // console.log(allBounties);
     } catch (err) {
         next(err);
@@ -43,7 +43,7 @@ const getUserCreated = async (req, res, next) => {
     let user;
     try {
         // allBounties = await Bounty.find();
-        user = await User.findById(id);
+        user = await User.findOne({ userName: req.params.name });
         // console.log(allBounties);
     } catch (err) {
         next(err);
@@ -59,5 +59,5 @@ module.exports = {
     get,
     getUserAccepted,
     getUserCreated,
-    getUserName
+    getUser
 };

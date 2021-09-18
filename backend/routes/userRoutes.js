@@ -3,9 +3,9 @@ const router = express.Router();
 const controller = require('../controllers/userController');
 
 router.get('/', controller.get);
-router.get('/useraccepted/:id', controller.getUserAccepted);
-router.get('/usercreated/:id', controller.getUserCreated);
-router.get('/userName/:id', controller.getUserName);
+router.get('/accepted/:name', controller.getUserAccepted);
+router.get('/created/:name', controller.getUserCreated);
+router.get('/user/:name', controller.getUser);
 
 
 // router.get('/:id', controller.detailsBounty);

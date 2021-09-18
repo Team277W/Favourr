@@ -2,16 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+    // _id: mongoose.ObjectId,
     userName: {
         type: String,
         required: [true, "This is a required field!"]
     }, 
     bountiesAccepted: {
-        type: [Bounty],
+        type: [mongoose.ObjectId],
         required: [true, "This is a required field!"]
     },
     bountiesCreated: {
-        type: [Bounty],
+        type: [mongoose.ObjectId],
         required: [true, "This is a required field!"]
     }
 }, { timestamps: true });
@@ -19,4 +20,4 @@ const userSchema = new Schema({
 // Model
 const User = mongoose.model('User', userSchema);
 
-module.exports = Bounty;
+module.exports = User;
