@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.favourr.R;
 
-public class ViewFavour extends AppCompatActivity {
+public class ViewFavourActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

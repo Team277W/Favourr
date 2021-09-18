@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.favourr.ui.home.CreateFavour;
+import com.example.favourr.ui.home.CreateFavourActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -47,7 +47,7 @@ public class LaunchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(getApplicationContext(), CreateFavour.class);
+        Intent intent = new Intent(getApplicationContext(), CreateFavourActivity.class);
         shp = getPreferences(MODE_PRIVATE);
         boolean inAlready = shp.getBoolean("in", false);
         if (inAlready) {
@@ -75,19 +75,21 @@ public class LaunchActivity extends AppCompatActivity {
                         shpEditor.putBoolean("in", true);
                         shpEditor.apply();
                         LaunchActivity.this.startActivity(intent);
-                    }  catch (Exception e){
-                    System.out.println(e);
-                    Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
-                    intent.putExtra("Username", userName.getText().toString());
-                    intent.putExtra("Name", name.getText().toString());
-                    startActivity(intent);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+                        intent.putExtra("Username", userName.getText().toString());
+                        intent.putExtra("Name", name.getText().toString());
+                        startActivity(intent);
+                    }
                 }
+
             });
             mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
             // method to get the location
             getLastLocation();
-        }
-    }
+
+        }}
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
         // check if permissions are given

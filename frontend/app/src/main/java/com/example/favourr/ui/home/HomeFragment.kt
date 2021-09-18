@@ -13,6 +13,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.favourr.Favourr
 import com.example.favourr.MainViewModel
 import com.example.favourr.R
 import com.example.favourr.databinding.FragmentHomeBinding
