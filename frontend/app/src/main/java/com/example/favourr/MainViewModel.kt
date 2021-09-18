@@ -20,6 +20,13 @@ class MainViewModel : ViewModel() {
         _state.value = newState
     }
 
+    private val _name = MutableLiveData<String>()
+    val name: LiveData<String> = _name
+
+    fun setName(newName: String) {
+        _name.value = newName
+    }
+
     enum class State {
         SEARCHING, CONNECTED
     }
