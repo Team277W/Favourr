@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.favourr.ui.home.CreateFavourActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -47,7 +48,7 @@ public class LaunchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(getApplicationContext(), CreateFavour.class);
+        Intent intent = new Intent(getApplicationContext(), CreateFavourActivity.class);
         shp = getPreferences(MODE_PRIVATE);
         boolean inAlready = shp.getBoolean("in", false);
         if (inAlready) {

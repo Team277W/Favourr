@@ -18,10 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Favourr">
         <activity
-            android:name=".ui.home.ViewFavour"
+            android:name=".ui.home.ViewFavourActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.home.CreateFavour"
+            android:name=".ui.home.CreateFavourActivity"
             android:exported="true" />
         <activity
             android:name=".LaunchActivity"

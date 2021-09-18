@@ -1,11 +1,17 @@
 package com.example.favourr;
 
-public class Favourr {
+import android.location.Location;
 
-    private String title, description, deadline, location;
+import java.io.Serializable;
+import java.util.Date;
+
+public class Favourr implements Serializable {
+
+    private String title, description, location;
+    private Date deadline;
     double bountyPrice;
 
-    public Favourr(String title, double bountyPrice, String description, String deadline, String location) {
+    public Favourr(String title, double bountyPrice, String description, Date deadline, String location) {
         this.title = title;
         this.bountyPrice = bountyPrice;
         this.description = description;
@@ -29,11 +35,11 @@ public class Favourr {
         this.description = description;
     }
 
-    public String getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(String deadline) {
+    public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
 
