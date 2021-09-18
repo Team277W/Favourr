@@ -11,6 +11,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -24,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.favourr.ui.home.CreateFavour;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -43,42 +45,48 @@ public class LaunchActivity extends AppCompatActivity {
     // from layout file
     Double latitudeTextView, longitTextView;
     int PERMISSION_ID = 44;
+    SharedPreferences shp;
+    SharedPreferences.Editor shpEditor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launch);
+        Intent intent = new Intent(getApplicationContext(), CreateFavour.class);
+        shp = getPreferences(MODE_PRIVATE);
+        boolean inAlready = shp.getBoolean("in", false);
+        if (inAlready) {
+            LaunchActivity.this.startActivity(intent);
+        } else {
+            setContentView(R.layout.activity_launch);
+            Button goHome = findViewById(R.id.goHome);
+            EditText userName = findViewById(R.id.UserName);
+            EditText name = findViewById(R.id.Name);
 
-        Button goHome = findViewById(R.id.goHome);
-        EditText userName = findViewById(R.id.UserName);
-        EditText name = findViewById(R.id.Name);
-
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-        getSupportActionBar().hide();
-        goHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
-                    List<Address> addresses = gcd.getFromLocation(latitudeTextView,
-                            longitTextView, 1);
-                    String cityName = addresses.get(0).getAddressLine(0);
-
-                    Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
-
-                    intent.putExtra("Username", userName.getText());
-                    intent.putExtra("Name", name.getText());
-                    intent.putExtra("City", cityName);
-                    LaunchActivity.this.startActivity(intent);
-                } catch (Exception e){
-                    System.out.println(e);
+            Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+            getSupportActionBar().hide();
+            goHome.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
+                        List<Address> addresses = gcd.getFromLocation(latitudeTextView,
+                                longitTextView, 1);
+                        String cityName = addresses.get(0).getAddressLine(0);
+                        intent.putExtra("Username", userName.getText());
+                        intent.putExtra("Name", name.getText());
+                        intent.putExtra("City", cityName);
+                        shpEditor = shp.edit();
+                        shpEditor.putBoolean("in", true);
+                        shpEditor.apply();
+                        LaunchActivity.this.startActivity(intent);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
                 }
-
-            }
-        });
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        // method to get the location
-        getLastLocation();
-
+            });
+            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+            // method to get the location
+            getLastLocation();
+        }
     }
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
