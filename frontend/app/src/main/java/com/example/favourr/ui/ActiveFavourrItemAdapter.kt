@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.favourr.Favourr
 import com.example.favourr.databinding.ItemActiveFavourrBinding
 
-class ActiveFavourrItemAdapter(private val favourrs: List<Favourr>) :
+class ActiveFavourrItemAdapter(private var favourrs: List<Favourr>) :
     RecyclerView.Adapter<ActiveFavourrItemAdapter.ActiveFavourrItemViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -22,6 +22,11 @@ class ActiveFavourrItemAdapter(private val favourrs: List<Favourr>) :
     }
 
     override fun getItemCount(): Int = favourrs.size
+
+    fun setFavourrs(newFavourrs: List<Favourr>) {
+        favourrs = newFavourrs
+        notifyDataSetChanged()
+    }
 
     inner class ActiveFavourrItemViewHolder(binding: ItemActiveFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(favourr: Favourr) {
