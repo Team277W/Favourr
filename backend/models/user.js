@@ -13,6 +13,10 @@ const userSchema = new Schema({
     bountiesCreated: {
         type: [Bounty],
         required: [true, "This is a required field!"]
+    },
+    totalCash: {
+        type: Number,
+        required: [true, "This is a required field!"]
     }
 }, { timestamps: true });
 
