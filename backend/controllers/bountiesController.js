@@ -56,8 +56,27 @@ const getByUser = async (req, res, next) => {
     });
 }
 
+const updateStatus = async (req, res, next) => {
+    let bountyToUpdate;
+    try {
+        bountyToUpdate = await Bounty.findByIdAndUpdate(
+            req.params.id, 
+            {status: req.params.level}, 
+            {new: true}, 
+            (err) => {return res.status(500).send(err);});
+    } catch (err) {
+        next(err);
+    }
+
+    return res.json({ 
+        updatedBounty: bountyToUpdate,
+        message: "Updated Bounty" 
+    });
+}
+
 module.exports = {
     createBounty,
     getByCity,
-    getByUser
+    getByUser,
+    updateStatus
 };
