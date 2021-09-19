@@ -1,4 +1,4 @@
-package com.example.favourr.ui.localFavourrs
+package com.example.favourr.ui.profile
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,15 +8,15 @@ import com.example.favourr.databinding.ItemLocalFavourrBinding
 import com.example.favourr.models.FavourrModel
 import com.example.favourr.ui.home.ViewFavourActivity
 
-class LocalFavourrsAdapter(private var favourrs: List<FavourrModel>) :
-    RecyclerView.Adapter<LocalFavourrsAdapter.LocalFavourrViewHolder>() {
+class ProfileFavourrAdapter(private var favourrs: List<FavourrModel>) :
+    RecyclerView.Adapter<ProfileFavourrAdapter.ProfileFavourrViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocalFavourrViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileFavourrViewHolder {
         val binding = ItemLocalFavourrBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return LocalFavourrViewHolder(binding)
+        return ProfileFavourrViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: LocalFavourrViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProfileFavourrViewHolder, position: Int) {
         holder.bind(favourrs[position])
     }
 
@@ -27,7 +27,7 @@ class LocalFavourrsAdapter(private var favourrs: List<FavourrModel>) :
         notifyDataSetChanged()
     }
 
-    inner class LocalFavourrViewHolder(private val binding: ItemLocalFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ProfileFavourrViewHolder(private val binding: ItemLocalFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(favourr: FavourrModel) {
             binding.name.text = favourr.title
             binding.price.text = "$" + favourr.cash.toString()

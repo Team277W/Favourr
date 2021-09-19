@@ -13,16 +13,18 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.favourr.ui.home.CreateFavourActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.favourr.models.UserContainerModel;
+import com.example.favourr.network.ApiInterface;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -30,9 +32,17 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.gson.Gson;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LaunchActivity extends AppCompatActivity {
     FusedLocationProviderClient mFusedLocationClient;
@@ -75,6 +85,28 @@ public class LaunchActivity extends AppCompatActivity {
                         shpEditor.putString("Name", name.getText().toString());
                         shpEditor.putString("City", cityName.toLowerCase());
                         shpEditor.apply();
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("userName", userName.getText().toString());
+                        String strRequestBody = new Gson().toJson(params);
+                        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), strRequestBody);
+                        Call<UserContainerModel> apiInterface = ApiInterface.Companion.create().postUser(requestBody);
+                        apiInterface.enqueue(new Callback<UserContainerModel>() {
+                            @Override
+                            public void onResponse(Call<UserContainerModel> call, Response<UserContainerModel> response) {
+                                if (!response.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Couldn't make user", Toast.LENGTH_LONG).show();
+                                } else {
+                                    SharedPreferences.Editor editor = shp.edit();
+                                    editor.putString("userId", response.body().getUser().get_id());
+                                    editor.apply();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<UserContainerModel> call, Throwable t) {
+                                Log.d("Testing", "Couldn't make user");
+                            }
+                        });
                         startActivity(intent);
                     } catch (Exception e) {
                         System.out.println(e);
@@ -88,6 +120,28 @@ public class LaunchActivity extends AppCompatActivity {
                         shpEditor.putString("Name", name.getText().toString());
                         shpEditor.putString("City", "waterloo");
                         shpEditor.apply();
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("userName", userName.getText().toString());
+                        String strRequestBody = new Gson().toJson(params);
+                        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), strRequestBody);
+                        Call<UserContainerModel> apiInterface = ApiInterface.Companion.create().postUser(requestBody);
+                        apiInterface.enqueue(new Callback<UserContainerModel>() {
+                            @Override
+                            public void onResponse(Call<UserContainerModel> call, Response<UserContainerModel> response) {
+                                if (!response.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Couldn't make user", Toast.LENGTH_LONG).show();
+                                } else {
+                                    SharedPreferences.Editor editor = shp.edit();
+                                    editor.putString("userId", response.body().getUser().get_id());
+                                    editor.apply();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<UserContainerModel> call, Throwable t) {
+                                Log.d("Testing", "Couldn't make user");
+                            }
+                        });
                         startActivity(intent);
                     }
                 }
