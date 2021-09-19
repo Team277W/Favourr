@@ -71,17 +71,12 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
             activeAdaptor.getFavourrs().add(0, mAdapter.getFavourrs().get(position));
 //        activeAdaptor.setFavourrs(activeAdaptor.getFavourrs());
             mAdapter.getFavourrs().remove(position);
-
-//        List<FavourrModel> newListActive = activeAdaptor.getFavourrs();
-//        List<FavourrModel> newListAvailable = mAdapter.getFavourrs();
-//
-//
 //        activeAdaptor.setFavourrs(newListActive);
 //        mAdapter.setFavourrs(newListAvailable);
 
 //        mAdapter.setFavourrs(mAdapter.getFavourrs());
             mAdapter.notifyItemRemoved(position);
-            activeAdaptor.notifyItemRemoved(position);
+            activeAdaptor.notifyItemInserted(0);
         } else {
             SharedPreferences sharedPrefs = context.getSharedPreferences("LaunchPrefs", Context.MODE_PRIVATE);
             Call<UpdatedFavourrModel> apiInterface = ApiInterface.Companion.create().updateFavourrProgress(
