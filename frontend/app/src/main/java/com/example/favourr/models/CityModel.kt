@@ -1,4 +1,4 @@
-package com.example.favourr
+package com.example.favourr.models
 
 import java.io.Serializable
 

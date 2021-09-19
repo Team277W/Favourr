@@ -6,7 +6,6 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +17,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.favourr.ui.connections.ProfileFragment
-
 import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.connection.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -80,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val createFavourr:Boolean = intent.getBooleanExtra("goProfile", false)
+        val createFavourr = intent.getBooleanExtra("goProfile", false)
         if (createFavourr) {
             val newFragment: Fragment = ProfileFragment()
             val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
