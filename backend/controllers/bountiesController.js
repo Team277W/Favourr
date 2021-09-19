@@ -52,7 +52,7 @@ const getByUser = async (req, res, next) => {
     let userBounties;
     try {
         // allBounties = await Bounty.find();
-        cityBounties = await Bounty.find({ userName: req.params.user });
+        userBounties = await Bounty.find({ userName: req.params.user });
         // console.log(allBounties);
     } catch (err) {
         next(err);
@@ -60,12 +60,41 @@ const getByUser = async (req, res, next) => {
         
     return res.json({ 
         bounties: userBounties,
-        message: "Bounties in this city" 
+        message: "Bounties by user" 
     });
 }
 
 const updateStatus = async (req, res, next) => {
     let bountyToUpdate;
+
+    if (req.params.level < 0 || req.params.level > 2){
+        return res.json({
+            error: "Invalid LEVEL!"
+        })
+    }
+    else if(req.params.level == 2){
+        User.findOne({ _id: req.params.user }, function (err, doc){
+            if(err) {
+                return res.json({
+                    error: err
+                })
+            }
+            else {
+                try {
+                    if(!doc.bountiesCreated.includes(req.params.id)){
+                        return res.json({
+                            error: "Invalid user permissions."
+                        })
+                    }
+                }
+                catch(err) {
+                    return res.json({
+                        error: err
+                    })
+                }
+            }
+        })
+    }
     
     try {
 
