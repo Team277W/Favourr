@@ -45,9 +45,6 @@ class HomeFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        mainViewModel.connectionId.observe(viewLifecycleOwner, Observer {
-            // new connection
-        })
         return binding.root
     }
 
