@@ -17,7 +17,7 @@ const getByCity = async (req, res, next) => {
     });
 }
 
-const createBounty = async(req, res, next) => {
+const createBounty = (req, res, next) => {
 
     const bounty = new Bounty({
         title: req.body.title,
@@ -28,15 +28,20 @@ const createBounty = async(req, res, next) => {
         cash: req.body.cash
     });
 
-    bounty.save(function (err, data) {
-        if(err) {
-            res.status(500);
-            return res.json({ error: err });
-        }
-        else {
-            return res.json({ bounty: data });
-        }
-    });
+    try {
+        bounty.save(function (err, data) {
+            if(err) {
+                res.status(500);
+                return res.json({ error: err });
+            }
+            else {
+                return res.json({ bounty: data });
+            }
+        });
+    } 
+    catch (err) {
+        return res.json({ error: err });
+    }
 }
 
 const getByUser = async (req, res, next) => {
@@ -74,9 +79,22 @@ const updateStatus = async (req, res, next) => {
     });
 }
 
+const deleteBounty = (req, res, next) => {
+
+    Blog.findByIdAndDelete(req.params.id, function(err, data) {
+        if(err) {
+            next(err);
+        }
+        else {
+            res.json({ blog: data });
+        }
+    });
+}
+
 module.exports = {
     createBounty,
     getByCity,
     getByUser,
-    updateStatus
+    updateStatus,
+    deleteBounty
 };

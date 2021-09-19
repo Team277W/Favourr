@@ -13,7 +13,7 @@ const get = (req, res, next) => {
     return res.json({ users: users });
 }
 
-const createUser = async (req, res, next) => {
+const createUser = (req, res, next) => {
     
     const user = new User({
         userName: req.body.userName,

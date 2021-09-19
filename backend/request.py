@@ -1,4 +1,5 @@
 import requests
+import json
 
 data = {
     "title": '4 Loonies',
@@ -8,8 +9,12 @@ data = {
     "cash": 20
 }
 
+# backend-rqj26lvvaa-uc.a.run.app
+
 x = requests.post(
-    url="https://backend-rqj26lvvaa-uc.a.run.app/api/bounties/", data=data)
+    url="http://127.0.0.1:3000/api/bounties/",
+    headers={'Content-Type': 'application/json'},
+    data=json.dumps(data))
 
 print(x)
 print(x.json())

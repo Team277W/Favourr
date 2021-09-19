@@ -10,6 +10,7 @@ router.get('/user/:user', controller.getByUser);
 router.put('/su/:level/id/:id', controller.updateStatus);
 // router.get('/:id', controller.detailsBounty);
 // router.put('/:id', controller.editBounty);
-// router.delete('/:id', controller.deleteBounty);
+
+router.delete('/:id', controller.deleteBounty);
 
 module.exports = router;
