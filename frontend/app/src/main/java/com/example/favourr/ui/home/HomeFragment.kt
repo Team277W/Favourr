@@ -80,7 +80,7 @@ class HomeFragment : Fragment() {
         val availableFavourrsAdapter = AvailableFavourrItemAdapter(listOf())
         binding.availableFavourrsRv.layoutManager = availableFavourrsLayoutManager
         binding.availableFavourrsRv.adapter = availableFavourrsAdapter
-        val itemTouchHelper = ItemTouchHelper(SwipeToDeleteCallback(availableFavourrsAdapter, activeFavourrsAdapter))
+        val itemTouchHelper = ItemTouchHelper(SwipeToDeleteCallback(availableFavourrsAdapter, activeFavourrsAdapter, requireContext()))
         itemTouchHelper.attachToRecyclerView(binding.availableFavourrsRv)
 
         mainViewModel.encounteredFavourrs.observe(viewLifecycleOwner, Observer {

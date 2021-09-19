@@ -1,6 +1,7 @@
 package com.example.favourr;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -22,16 +23,16 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
-    private final AvailableFavourrItemAdapter mAdapter;
-    private final ActiveFavourrItemAdapter activeAdaptor;
+    private AvailableFavourrItemAdapter mAdapter;
+    private ActiveFavourrItemAdapter activeAdaptor;
     private Drawable icon;
     private ColorDrawable background;
-    public SwipeToDeleteCallback(AvailableFavourrItemAdapter adapter, ActiveFavourrItemAdapter _activeAdapter) {
+    public SwipeToDeleteCallback(AvailableFavourrItemAdapter adapter, ActiveFavourrItemAdapter _activeAdapter, Context context) {
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
         mAdapter = adapter;
         activeAdaptor = _activeAdapter;
-//        icon = ContextCompat.getDrawable(mAdapter.getAdaptorContext(),
-//                R.drawable.profilepic1);
+        icon = ContextCompat.getDrawable(context,
+                R.drawable.profilepic1);
         background = new ColorDrawable(Color.GREEN);
     }
 
@@ -50,12 +51,12 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
 //        activeAdaptor.setFavourrs(activeAdaptor.getFavourrs());
         mAdapter.getFavourrs().remove(position);
 
-        List<FavourrModel> newListActive = activeAdaptor.getFavourrs();
-        List<FavourrModel> newListAvailable = mAdapter.getFavourrs();
-
-
-        activeAdaptor.setFavourrs(newListActive);
-        mAdapter.setFavourrs(newListAvailable);
+//        List<FavourrModel> newListActive = activeAdaptor.getFavourrs();
+//        List<FavourrModel> newListAvailable = mAdapter.getFavourrs();
+//
+//
+//        activeAdaptor.setFavourrs(newListActive);
+//        mAdapter.setFavourrs(newListAvailable);
 
 //        mAdapter.setFavourrs(mAdapter.getFavourrs());
         mAdapter.notifyItemRemoved(position);
@@ -69,22 +70,22 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
                 dY, actionState, isCurrentlyActive);
         View itemView = viewHolder.itemView;
         int backgroundCornerOffset = 20;
-//        int iconMargin = (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
-//        int iconTop = itemView.getTop() + (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
-//        int iconBottom = iconTop + icon.getIntrinsicHeight();
+        int iconMargin = (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
+        int iconTop = itemView.getTop() + (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
+        int iconBottom = iconTop + icon.getIntrinsicHeight();
 
         if (dX > 0) { // Swiping to the right
 //            int iconLeft = itemView.getLeft() + iconMargin + icon.getIntrinsicWidth();
 //            int iconRight = itemView.getLeft() + iconMargin;
 //            icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
 
-//            background.setBounds(itemView.getLeft(), itemView.getTop(),
-//                    itemView.getLeft() + ((int) dX) + backgroundCornerOffset,
-//                    itemView.getBottom());
+            background.setBounds(10, 0,
+                    0,
+                    0);
         } else if (dX < 0) { // Swiping to the left
-//            int iconLeft = itemView.getRight() - iconMargin - icon.getIntrinsicWidth();
-//            int iconRight = itemView.getRight() - iconMargin;
-//            icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
+            int iconLeft = itemView.getRight() - iconMargin - icon.getIntrinsicWidth();
+            int iconRight = itemView.getRight() - iconMargin;
+            icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
 
             background.setBounds(itemView.getRight() + ((int) dX) - backgroundCornerOffset,
                     itemView.getTop(), itemView.getRight(), itemView.getBottom());

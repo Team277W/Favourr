@@ -27,9 +27,11 @@ class ActiveFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
 
     override fun getItemCount(): Int = favourrs.size
 
-    fun setFavourrs(newFavourrs: List<FavourrModel>) {
-        favourrs = newFavourrs
-        notifyDataSetChanged()
+    fun setFavourrs(newFavourrs: List<FavourrModel>?) {
+        if (newFavourrs != null) {
+            favourrs = newFavourrs
+            notifyDataSetChanged()
+        }
     }
 
     fun getFavourrs() : List<FavourrModel>{
