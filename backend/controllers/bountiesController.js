@@ -18,9 +18,10 @@ const getByCity = async (req, res, next) => {
     });
 }
 
-const createBounty = (req, res, next) => {
+const createBounty = async (req, res, next) => {
 
     const bounty = new Bounty({
+        user: req.body.user,
         title: req.body.title,
         body: req.body.body,
         contact: req.body.contact,
@@ -29,30 +30,51 @@ const createBounty = (req, res, next) => {
         cash: req.body.cash
     });
 
+    let userToUpdate;
+    let newBounty;
     try {
-        bounty.save(function (err, data) {
+        bounty.save(async function (err, data) {
             if(err) {
                 res.status(500);
                 return res.json({ error: err });
             }
             else {
-                return res.json({ bounty: data });
+                newBounty = data;
+
+                // add to users created bounties
+                userToUpdate = await User.findByIdAndUpdate(
+                    req.body.user, 
+                    { $push: { bountiesCreated: newBounty._id } }, 
+                    {new: true}, 
+                    (err) => {return res.status(500).send(err);});
             }
         });
-
-        // add to users created bounties
     } 
     catch (err) {
         return res.json({ error: err });
     }
+
+    return res.json({
+        bounty: newBounty
+    })
 }
 
-const getByUser = async (req, res, next) => {
+// created
+const getCreatedBounties = async (req, res, next) => {
+
+    console.log("GET BY USER")
     // let allBounties;
     let userBounties;
+    let user;
     try {
+
+        console.log("⚙️")
+        console.log(req.params.user)
+        user = await User.findById(req.params.user);
+        console.log(user)
+
         // allBounties = await Bounty.find();
-        userBounties = await Bounty.find({ userName: req.params.user });
+        userBounties = await Bounty.find({ user: req.params.user });
         // console.log(allBounties);
     } catch (err) {
         next(err);
@@ -60,8 +82,52 @@ const getByUser = async (req, res, next) => {
         
     return res.json({ 
         bounties: userBounties,
-        message: "Bounties by user" 
+        totalCash: `${user.totalCash}`
     });
+}
+
+// accepted
+const getAcceptedBounties = async (req, res, next) => {
+
+    console.log("GET ACCEPTED")
+    // let allBounties;
+    let user;
+    let bountyList = [];
+    try {
+
+        console.log("⚙️")
+        console.log(req.params.user)
+        user = await User.findById(req.params.user);
+        console.log(user)
+
+        let ids = [];
+
+        (user.bountiesAccepted).forEach(id => {
+            ids.push(id.toString())
+        });
+
+        console.log(ids)
+
+        for(let i = 0; i < ids.length; i++) {
+            id = ids[i]
+            let bounty = await Bounty.findById(id);
+            console.log("👇🏽")
+            console.log(bounty)
+            bountyList.push(bounty)
+        }
+
+        console.log("✅")
+        console.log(bountyList)
+
+        return res.json({ 
+            bounties: bountyList,
+            totalCash: `${user.totalCash}`
+        });
+    } catch (err) {
+        console.log("2️⃣")
+        console.log(err)
+        return res.json({ error: err });
+    }
 }
 
 const updateStatus = async (req, res, next) => {
@@ -110,7 +176,7 @@ const updateStatus = async (req, res, next) => {
         // update user
         userToUpdate = await User.findByIdAndUpdate(
             req.params.user, 
-            { $push: { bountiesCreated: req.params.id } }, 
+            { $push: { bountiesAccepted: req.params.id } }, 
             {new: true}, 
             (err) => {return res.status(500).send(err);});
 
@@ -142,7 +208,8 @@ const deleteBounty = (req, res, next) => {
 module.exports = {
     createBounty,
     getByCity,
-    getByUser,
+    getCreatedBounties,
+    getAcceptedBounties,
     updateStatus,
     deleteBounty
 };

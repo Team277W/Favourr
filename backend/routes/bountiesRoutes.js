@@ -5,7 +5,8 @@ const controller = require('../controllers/bountiesController');
 router.post('/', controller.createBounty);
 
 router.get('/city/:city', controller.getByCity);
-router.get('/user/:user', controller.getByUser);
+router.get('/created/:user', controller.getCreatedBounties);
+router.get('/accepted/:user', controller.getAcceptedBounties);
 
 router.put('/:user/:id/:level', controller.updateStatus);
 // router.get('/:id', controller.detailsBounty);
