@@ -4,6 +4,7 @@ const get = (req, res, next) => {
     return res.json({ message: "Hello 277 Lester" });
 }
 
+
 const getByCity = async (req, res, next) => {
     // let allBounties;
     let cityBounties;
