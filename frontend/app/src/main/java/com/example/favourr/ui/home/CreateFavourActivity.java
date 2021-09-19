@@ -1,7 +1,5 @@
 package com.example.favourr.ui.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +8,12 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.favourr.Favourr;
+import com.example.favourr.MainActivity;
 import com.example.favourr.R;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
@@ -51,7 +51,7 @@ public class CreateFavourActivity extends AppCompatActivity {
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 Favourr favourr = new Favourr(title.getText().toString(), Double.parseDouble(bountyPrice.getText().toString()),
                         description.getText().toString(), deadline, location.getText().toString());
                 intent.putExtra("newFavourr", favourr);

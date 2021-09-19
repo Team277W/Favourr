@@ -13,10 +13,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.favourr.Favourr
-import com.example.favourr.ApiInterface
-import com.example.favourr.MainViewModel
-import com.example.favourr.R
+import com.example.favourr.*
 import com.example.favourr.databinding.FragmentHomeBinding
 import com.example.favourr.ui.ActiveFavourrItemAdapter
 import com.example.favourr.ui.AvailableFavourrItemAdapter
@@ -61,19 +58,19 @@ class HomeFragment : Fragment() {
         binding.availableFavourrsRv.layoutManager = availableFavourrsLayoutManager
         binding.availableFavourrsRv.adapter = availableFavourrsAdapter
 
-        val apiInterface = ApiInterface.create().getFavourrs()
-        apiInterface.enqueue(object : Callback<List<Favourr>> {
+        val apiInterface = ApiInterface.create().getCityFavourrs(mainViewModel.city.value ?: "")
+        apiInterface.enqueue(object : Callback<CityModel> {
             override fun onResponse(
-                call: Call<List<Favourr>>?,
-                response: Response<List<Favourr>>?
+                call: Call<CityModel>?,
+                response: Response<CityModel>?
             ) {
                 response?.body()?.let {
-                    activeFavourrsAdapter.setFavourrs(it)
-                    availableFavourrsAdapter.setFavourrs(it)
+                    activeFavourrsAdapter.setFavourrs(it.bounties)
+                    availableFavourrsAdapter.setFavourrs(it.bounties)
                 }
             }
 
-            override fun onFailure(call: Call<List<Favourr>>?, t: Throwable?) {
+            override fun onFailure(call: Call<CityModel>?, t: Throwable?) {
                 // no-op
             }
         })

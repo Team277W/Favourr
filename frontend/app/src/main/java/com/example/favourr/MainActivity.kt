@@ -96,8 +96,9 @@ class MainActivity : AppCompatActivity() {
         sharedPrefs = this.getPreferences(Context.MODE_PRIVATE)
         val username = intent.extras?.getString("Username") ?: sharedPrefs.getString("Username", "")
         val name = intent.extras?.getString("Name") ?: sharedPrefs.getString("Name", "") ?: ""
-        val city = intent.extras?.getString("City") ?: sharedPrefs.getString("City", "")
+        val city = intent.extras?.getString("City") ?: sharedPrefs.getString("City", "") ?: ""
         mainViewModel.setName(name)
+        mainViewModel.setCity(city)
     }
 
     override fun onStart() {

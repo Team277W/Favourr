@@ -18,12 +18,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.favourr.ui.home.CreateFavourActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.example.favourr.ui.home.CreateFavour;
+import com.example.favourr.ui.home.CreateFavourActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -71,7 +70,7 @@ public class LaunchActivity extends AppCompatActivity {
                         String cityName = addresses.get(0).getAddressLine(0);
                         intent.putExtra("Username", userName.getText());
                         intent.putExtra("Name", name.getText());
-                        intent.putExtra("City", cityName);
+                        intent.putExtra("City", cityName.toLowerCase());
                         shpEditor = shp.edit();
                         shpEditor.putBoolean("in", true);
                         shpEditor.apply();
@@ -81,6 +80,7 @@ public class LaunchActivity extends AppCompatActivity {
                         Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
                         intent.putExtra("Username", userName.getText().toString());
                         intent.putExtra("Name", name.getText().toString());
+                        intent.putExtra("City", "waterloo");
                         startActivity(intent);
                     }
                 }

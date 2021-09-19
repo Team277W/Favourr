@@ -27,6 +27,13 @@ class MainViewModel : ViewModel() {
         _name.value = newName
     }
 
+    private val _city = MutableLiveData<String>()
+    val city: LiveData<String> = _city
+
+    fun setCity(newCity: String) {
+        _city.value = newCity
+    }
+
     enum class State {
         SEARCHING, CONNECTED
     }
