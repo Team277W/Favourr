@@ -1,5 +1,6 @@
-package com.example.favourr
+package com.example.favourr.network
 
+import com.example.favourr.CityModel
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

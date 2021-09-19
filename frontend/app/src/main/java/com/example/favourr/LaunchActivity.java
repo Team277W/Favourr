@@ -22,7 +22,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.example.favourr.ui.home.CreateFavourActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -33,7 +32,6 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 
 public class LaunchActivity extends AppCompatActivity {
     FusedLocationProviderClient mFusedLocationClient;
@@ -47,19 +45,17 @@ public class LaunchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(getApplicationContext(), CreateFavourActivity.class);
-        shp = getPreferences(MODE_PRIVATE);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        shp = getSharedPreferences("LaunchPrefs", MODE_PRIVATE);
         boolean inAlready = shp.getBoolean("in", false);
         if (inAlready) {
-            LaunchActivity.this.startActivity(intent);
+            startActivity(intent);
         } else {
             setContentView(R.layout.activity_launch);
             Button goHome = findViewById(R.id.goHome);
             EditText userName = findViewById(R.id.UserName);
             EditText name = findViewById(R.id.Name);
 
-            Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-            getSupportActionBar().hide();
             goHome.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -73,14 +69,23 @@ public class LaunchActivity extends AppCompatActivity {
                         intent.putExtra("City", cityName.toLowerCase());
                         shpEditor = shp.edit();
                         shpEditor.putBoolean("in", true);
+                        shpEditor.putString("Username", userName.getText().toString());
+                        shpEditor.putString("Name", name.getText().toString());
+                        shpEditor.putString("City", cityName.toLowerCase());
                         shpEditor.apply();
-                        LaunchActivity.this.startActivity(intent);
+                        startActivity(intent);
                     } catch (Exception e) {
                         System.out.println(e);
-                        Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.putExtra("Username", userName.getText().toString());
                         intent.putExtra("Name", name.getText().toString());
                         intent.putExtra("City", "waterloo");
+                        shpEditor = shp.edit();
+                        shpEditor.putBoolean("in", true);
+                        shpEditor.putString("Username", userName.getText().toString());
+                        shpEditor.putString("Name", name.getText().toString());
+                        shpEditor.putString("City", "waterloo");
+                        shpEditor.apply();
                         startActivity(intent);
                     }
                 }
@@ -199,6 +204,7 @@ public class LaunchActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         if (checkPermissions()) {
+            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
             getLastLocation();
         }
     }

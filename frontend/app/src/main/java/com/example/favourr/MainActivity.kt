@@ -13,8 +13,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.connection.*
@@ -83,9 +81,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_connections))
-        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         mainViewModel.state.observe(this, Observer {
@@ -93,10 +88,10 @@ class MainActivity : AppCompatActivity() {
         })
         connectionsClient = Nearby.getConnectionsClient(this)
 
-        sharedPrefs = this.getPreferences(Context.MODE_PRIVATE)
-        val username = intent.extras?.getString("Username") ?: sharedPrefs.getString("Username", "")
-        val name = intent.extras?.getString("Name") ?: sharedPrefs.getString("Name", "") ?: ""
-        val city = intent.extras?.getString("City") ?: sharedPrefs.getString("City", "") ?: ""
+        sharedPrefs = getSharedPreferences("LaunchPrefs", Context.MODE_PRIVATE)
+        val username = intent.extras?.getString("Username") ?: sharedPrefs.getString("Username", "No username")
+        val name = intent.extras?.getString("Name") ?: sharedPrefs.getString("Name", "No Name") ?: ""
+        val city = intent.extras?.getString("City") ?: sharedPrefs.getString("City", "No City") ?: ""
         mainViewModel.setName(name)
         mainViewModel.setCity(city)
     }

@@ -16,7 +16,6 @@ import com.example.favourr.R;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 public class CreateFavourActivity extends AppCompatActivity {
     DatePickerDialog picker;
@@ -27,8 +26,6 @@ public class CreateFavourActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_favour);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-        getSupportActionBar().hide();
         payment = findViewById(R.id.payment);
         cal = findViewById(R.id.cal);
         cal.setOnClickListener(new View.OnClickListener() {

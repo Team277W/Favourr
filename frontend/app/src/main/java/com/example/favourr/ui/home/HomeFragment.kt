@@ -1,5 +1,6 @@
 package com.example.favourr.ui.home
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Spannable
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.favourr.*
 import com.example.favourr.databinding.FragmentHomeBinding
+import com.example.favourr.network.ApiInterface
 import com.example.favourr.ui.ActiveFavourrItemAdapter
 import com.example.favourr.ui.AvailableFavourrItemAdapter
 import retrofit2.Call
@@ -46,8 +48,13 @@ class HomeFragment : Fragment() {
 
         val welcomeStr = getString(R.string.welcome, mainViewModel.name.value)
         val ssb = SpannableStringBuilder(welcomeStr)
-        ssb.setSpan(StyleSpan(Typeface.BOLD), welcomeStr.indexOf('\n'), welcomeStr.length - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+        ssb.setSpan(StyleSpan(Typeface.BOLD), welcomeStr.indexOf('\n'), welcomeStr.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
         binding.welcomeBack.text = ssb
+
+        binding.favourButton.setOnClickListener {
+            val intent = Intent(requireContext(), CreateFavourActivity::class.java)
+            startActivity(intent)
+        }
 
         val activeFavourrsLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         val activeFavourrsAdapter = ActiveFavourrItemAdapter(listOf())
@@ -58,7 +65,8 @@ class HomeFragment : Fragment() {
         binding.availableFavourrsRv.layoutManager = availableFavourrsLayoutManager
         binding.availableFavourrsRv.adapter = availableFavourrsAdapter
 
-        val apiInterface = ApiInterface.create().getCityFavourrs(mainViewModel.city.value ?: "")
+        // TODO: val apiInterface = ApiInterface.create().getCityFavourrs(mainViewModel.city.value ?: "")
+        val apiInterface = ApiInterface.create().getCityFavourrs("waterloo")
         apiInterface.enqueue(object : Callback<CityModel> {
             override fun onResponse(
                 call: Call<CityModel>?,
