@@ -96,9 +96,9 @@ public class LaunchActivity extends AppCompatActivity {
                                 if (!response.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Couldn't make user", Toast.LENGTH_LONG).show();
                                 } else {
-                                    shpEditor = shp.edit();
-                                    shpEditor.putString("userId", response.body().getUser().get_id());
-                                    shpEditor.apply();
+                                    SharedPreferences.Editor editor = shp.edit();
+                                    editor.putString("userId", response.body().getUser().get_id());
+                                    editor.apply();
                                 }
                             }
 
@@ -120,6 +120,28 @@ public class LaunchActivity extends AppCompatActivity {
                         shpEditor.putString("Name", name.getText().toString());
                         shpEditor.putString("City", "waterloo");
                         shpEditor.apply();
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("userName", userName.getText().toString());
+                        String strRequestBody = new Gson().toJson(params);
+                        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), strRequestBody);
+                        Call<UserContainerModel> apiInterface = ApiInterface.Companion.create().postUser(requestBody);
+                        apiInterface.enqueue(new Callback<UserContainerModel>() {
+                            @Override
+                            public void onResponse(Call<UserContainerModel> call, Response<UserContainerModel> response) {
+                                if (!response.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Couldn't make user", Toast.LENGTH_LONG).show();
+                                } else {
+                                    SharedPreferences.Editor editor = shp.edit();
+                                    editor.putString("userId", response.body().getUser().get_id());
+                                    editor.apply();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<UserContainerModel> call, Throwable t) {
+                                Log.d("Testing", "Couldn't make user");
+                            }
+                        });
                         startActivity(intent);
                     }
                 }

@@ -1,9 +1,6 @@
 package com.example.favourr.network
 
-import com.example.favourr.models.CityModel
-import com.example.favourr.models.FavourrModel
-import com.example.favourr.models.UpdatedFavourrModel
-import com.example.favourr.models.UserContainerModel
+import com.example.favourr.models.*
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -27,6 +24,9 @@ interface ApiInterface {
         @Path("bounty_id") bountyId: String,
         @Path("level") level: Int
     ): Call<UpdatedFavourrModel>
+
+    @GET("bounties/user/{user_id}")
+    fun getUserData(@Path("user_id") userId: String) : Call<ProfileModel>
 
     companion object {
         private const val BASE_URL = "https://backend-rqj26lvvaa-uc.a.run.app/api/"
