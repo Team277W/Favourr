@@ -6,7 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.favourr.databinding.FragmentLocalFavourrsBinding
+import com.example.favourr.models.CityModel
+import com.example.favourr.network.ApiInterface
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LocalFavourrsFragment : Fragment() {
 
@@ -25,5 +31,26 @@ class LocalFavourrsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        val localFavourrsAdapter = LocalFavourrsAdapter(listOf())
+        binding.localFavourrsRv.layoutManager = linearLayoutManager
+        binding.localFavourrsRv.adapter = localFavourrsAdapter
+
+        val apiInterface = ApiInterface.create().getCityFavourrs("waterloo")
+        apiInterface.enqueue(object : Callback<CityModel> {
+            override fun onResponse(
+                call: Call<CityModel>?,
+                response: Response<CityModel>?
+            ) {
+                response?.body()?.let {
+                    localFavourrsAdapter.setFavourrs(it.bounties)
+                }
+            }
+
+            override fun onFailure(call: Call<CityModel>?, t: Throwable?) {
+                // no-op
+            }
+        })
     }
 }

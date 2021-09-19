@@ -2,25 +2,34 @@ package com.example.favourr.network
 
 import com.example.favourr.models.CityModel
 import com.example.favourr.models.FavourrModel
+import com.example.favourr.models.UpdatedFavourrModel
+import com.example.favourr.models.UserContainerModel
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiInterface {
 
-    @GET("city/{city_name}")
+    @GET("bounties/city/{city_name}")
     fun getCityFavourrs(@Path("city_name") cityName: String) : Call<CityModel>
 
-    @POST(".")
+    @POST("bounties")
     fun postFavourr(@Body body: RequestBody) : Call<FavourrModel>
 
+    @POST("users")
+    fun postUser(@Body body: RequestBody) : Call<UserContainerModel>
+
+    @PUT("bounties/{user_id}/{bounty_id}/{level}")
+    fun updateFavourrProgress(
+        @Path("user_id") userId: String,
+        @Path("bounty_id") bountyId: String,
+        @Path("level") level: Int
+    ): Call<UpdatedFavourrModel>
+
     companion object {
-        private const val BASE_URL = "https://backend-rqj26lvvaa-uc.a.run.app/api/bounties/"
+        private const val BASE_URL = "https://backend-rqj26lvvaa-uc.a.run.app/api/"
         fun create() : ApiInterface {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())

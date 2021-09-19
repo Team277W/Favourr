@@ -1,4 +1,4 @@
-package com.example.favourr.ui.connections
+package com.example.favourr.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.favourr.databinding.FragmentProfileBinding
+import com.example.favourr.ui.connections.ProfileViewModel
 
 class ProfileFragment : Fragment() {
 
