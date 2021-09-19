@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/bountiesController');
 
-router.get('/', controller.get);
 router.post('/', controller.createBounty);
 
 router.get('/city/:city', controller.getByCity);

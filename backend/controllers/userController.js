@@ -1,7 +1,16 @@
 const User = require('../models/user');
 
 const get = (req, res, next) => {
-    return res.json({ message: "Hello 277 Lester" });
+
+    let users;
+    try {
+        users = User.find();
+    }
+    catch (err) {
+        next(err)
+    }
+
+    return res.json({ users: users });
 }
 
 const createUser = async (req, res, next) => {
@@ -10,8 +19,7 @@ const createUser = async (req, res, next) => {
         userName: req.body.userName,
         bountiesAccepted: req.body.bountiesAccepted,
         bountiesCreated: req.body.bountiesCreated,
-        status: 0,
-        cash: req.body.cash
+        totalCash: req.body.cash
     });
 
     user.save(function (err, data) {
@@ -26,11 +34,11 @@ const createUser = async (req, res, next) => {
 }
 
 const getUser = async (req, res, next) => {
-    let allUsers;
+    // let allUsers;
     let user;
     try {
-        allUsers = await User.find();
-        console.log(req.params.name)
+        // allUsers = await User.find();
+        // console.log(req.params.name)
         user = await User.findOne({ userName: req.params.name });
         console.log(allUsers);
     } catch (err) {

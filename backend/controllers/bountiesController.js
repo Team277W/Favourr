@@ -1,10 +1,5 @@
 const Bounty = require('../models/bounty');
 
-const get = (req, res, next) => {
-    return res.json({ message: "Hello 277 Lester" });
-}
-
-
 const getByCity = async (req, res, next) => {
     // let allBounties;
     let cityBounties;
@@ -62,7 +57,6 @@ const getByUser = async (req, res, next) => {
 }
 
 module.exports = {
-    get,
     createBounty,
     getByCity,
     getByUser

@@ -7,7 +7,6 @@ const bountiesRoutes = require('./routes/bountiesRoutes');
 
 const userRoutes = require('./routes/userRoutes');
 
-
 const app = express();
 
 app.use(cors())
@@ -17,7 +16,7 @@ app.use('/api/bounties/', bountiesRoutes);
 
 app.use('/api/users/', userRoutes);
 
-require('dotenv').config();
+// require('dotenv').config();
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
