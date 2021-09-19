@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="16dp"
+    android:layout_marginBottom="?attr/actionBarSize"
     android:background="@color/background_main"
     tools:context=".ui.localFavourrs.LocalFavourrsFragment">
 
@@ -25,8 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/local_favourrs_title"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_local_favourr" />
 </androidx.constraintlayout.widget.ConstraintLayout>

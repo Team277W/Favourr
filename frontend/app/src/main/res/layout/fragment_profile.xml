@@ -71,7 +71,7 @@
         android:id="@+id/earnings_container"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="?attr/actionBarSize"
         app:cardBackgroundColor="@color/background"
         app:cardCornerRadius="12dp"
         app:layout_constraintStart_toStartOf="parent"
