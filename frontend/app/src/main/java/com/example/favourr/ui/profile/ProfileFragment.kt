@@ -45,6 +45,7 @@ class ProfileFragment : Fragment() {
             override fun onResponse(call: Call<ProfileModel>?, response: Response<ProfileModel>?) {
                 if (response?.isSuccessful == true) {
                     profileAdapter.setFavourrs(response.body().bounties)
+                    if (response.body().bounties.isNotEmpty()) binding.noActive.visibility = View.GONE
                     binding.earningsBody.text = "$" + response.body().totalCash
                 }
             }
