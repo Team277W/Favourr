@@ -3,6 +3,7 @@ package com.example.favourr
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.favourr.models.FavourrModel
 
 class MainViewModel : ViewModel() {
 
@@ -32,6 +33,13 @@ class MainViewModel : ViewModel() {
 
     fun setCity(newCity: String) {
         _city.value = newCity
+    }
+
+    private val _encounteredFavourrs = MutableLiveData<List<FavourrModel>>()
+    val encounteredFavourrs: LiveData<List<FavourrModel>> = _encounteredFavourrs
+
+    fun setEncounteredFavourrs(newFavourrs: List<FavourrModel>) {
+        _encounteredFavourrs.value = newFavourrs
     }
 
     enum class State {

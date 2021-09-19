@@ -42,7 +42,7 @@ class AvailableFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
             binding.root.setOnClickListener {
                 val intent = Intent(it.context, ViewFavourActivity::class.java)
                 intent.putExtra("FavourrData", favourr)
-                intent.putExtra("icIndex", idList[icIndex])
+                intent.putExtra("icIndex", icIndex)
                 it.context.startActivity(intent)
             }
         }
