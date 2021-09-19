@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.favourr.ListIdData
 import com.example.favourr.databinding.ItemLocalFavourrBinding
 import com.example.favourr.models.FavourrModel
 import com.example.favourr.ui.home.ViewFavourActivity
@@ -30,6 +31,7 @@ class ProfileFavourrAdapter(private var favourrs: List<FavourrModel>) :
 
     inner class ProfileFavourrViewHolder(private val binding: ItemLocalFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(favourr: FavourrModel, icIndex: Int) {
+            binding.userIcon.setImageResource(ListIdData().idList[icIndex])
             binding.name.text = favourr.title
             binding.price.text = String.format("$%.00f", favourr.cash)
             binding.desc.text = favourr.body
