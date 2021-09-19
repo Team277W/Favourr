@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.favourr.SwipeToDeleteCallback
 import com.example.favourr.databinding.FragmentLocalFavourrsBinding
 import com.example.favourr.models.CityModel
 import com.example.favourr.network.ApiInterface
@@ -36,6 +38,8 @@ class LocalFavourrsFragment : Fragment() {
         val localFavourrsAdapter = LocalFavourrsAdapter(listOf())
         binding.localFavourrsRv.layoutManager = linearLayoutManager
         binding.localFavourrsRv.adapter = localFavourrsAdapter
+        val itemTouchHelper = ItemTouchHelper(SwipeToDeleteCallback(localFavourrsAdapter, requireContext()))
+        itemTouchHelper.attachToRecyclerView(binding.localFavourrsRv)
 
         val apiInterface = ApiInterface.create().getCityFavourrs("waterloo")
         apiInterface.enqueue(object : Callback<CityModel> {
