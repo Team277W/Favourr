@@ -8,6 +8,7 @@ router.get('/city/:city', controller.getByCity);
 
 // router.get('/:id', controller.detailsBounty);
 // router.put('/:id', controller.editBounty);
-// router.delete('/:id', controller.deleteBounty);
+
+router.delete('/:id', controller.deleteBounty);
 
 module.exports = router;
