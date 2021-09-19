@@ -1,10 +1,9 @@
 package com.example.favourr.ui.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,15 +11,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.favourr.Favourr;
 import com.example.favourr.MainActivity;
 import com.example.favourr.R;
 import com.example.favourr.ui.profile.ProfileFragment;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 public class CreateFavourActivity extends AppCompatActivity {
     DatePickerDialog picker;
@@ -32,8 +31,6 @@ public class CreateFavourActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_favour);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-        getSupportActionBar().hide();
         payment = findViewById(R.id.payment);
         cal = findViewById(R.id.calendar);
         title = findViewById(R.id.favourTitle);

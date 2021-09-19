@@ -1,12 +1,14 @@
 package com.example.favourr.ui
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.favourr.Favourr
+import com.example.favourr.FavourrModel
 import com.example.favourr.databinding.ItemAvailableFavourrBinding
+import com.example.favourr.ui.home.ViewFavourActivity
 
-class AvailableFavourrItemAdapter(private var favourrs: List<Favourr>) :
+class AvailableFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
     RecyclerView.Adapter<AvailableFavourrItemAdapter.AvailableFavourrItemViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -23,14 +25,20 @@ class AvailableFavourrItemAdapter(private var favourrs: List<Favourr>) :
 
     override fun getItemCount(): Int = favourrs.size
 
-    fun setFavourrs(newFavourrs: List<Favourr>) {
+    fun setFavourrs(newFavourrs: List<FavourrModel>) {
         favourrs = newFavourrs
         notifyDataSetChanged()
     }
 
-    inner class AvailableFavourrItemViewHolder(binding: ItemAvailableFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(favourr: Favourr) {
-
+    inner class AvailableFavourrItemViewHolder(private val binding: ItemAvailableFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(favourr: FavourrModel) {
+            binding.name.text = favourr.title
+            binding.price.text = "$" + favourr.cash.toString()
+            binding.root.setOnClickListener {
+                val intent = Intent(it.context, ViewFavourActivity::class.java)
+                intent.putExtra("FavourrData", favourr)
+                it.context.startActivity(intent)
+            }
         }
     }
 }

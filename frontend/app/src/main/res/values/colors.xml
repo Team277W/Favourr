@@ -11,4 +11,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="money">#4E952D</color>
     <color name="background_main">#E5E5E5</color>
+    <color name="text_color">#141414</color>
 </resources>
