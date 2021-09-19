@@ -1,4 +1,4 @@
-package com.example.favourr.ui.connections
+package com.example.favourr.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.favourr.R
 import com.google.android.gms.nearby.connection.ConnectionsClient
 
-class ConnectionsFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private lateinit var connectionsViewModel: ConnectionsViewModel
+    private lateinit var connectionsViewModel: ProfileViewModel
     private lateinit var connectionsClient: ConnectionsClient
 
     override fun onCreateView(
@@ -22,7 +22,7 @@ class ConnectionsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         connectionsViewModel =
-            ViewModelProvider(this).get(ConnectionsViewModel::class.java)
+            ViewModelProvider(this).get(ProfileViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_notifications, container, false)
         val textView: TextView = root.findViewById(R.id.text_notifications)
         connectionsViewModel.text.observe(viewLifecycleOwner, Observer {

@@ -1,6 +1,7 @@
 package com.example.favourr.ui.home;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -9,9 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.favourr.Favourr;
+import com.example.favourr.MainActivity;
 import com.example.favourr.R;
+import com.example.favourr.ui.profile.ProfileFragment;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -21,7 +25,8 @@ import java.util.Objects;
 public class CreateFavourActivity extends AppCompatActivity {
     DatePickerDialog picker;
     EditText title, bountyPrice, description, location;
-    Button payment, cal;
+    Button payment;
+    ImageView cal;
     Date deadline;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +35,11 @@ public class CreateFavourActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         getSupportActionBar().hide();
         payment = findViewById(R.id.payment);
-        cal = findViewById(R.id.cal);
+        cal = findViewById(R.id.calendar);
+        title = findViewById(R.id.favourTitle);
+        bountyPrice = findViewById(R.id.bountyPrice);
+        description = findViewById(R.id.description);
+        location = findViewById(R.id.locationText);
         cal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,11 +60,13 @@ public class CreateFavourActivity extends AppCompatActivity {
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                 Favourr favourr = new Favourr(title.getText().toString(), Double.parseDouble(bountyPrice.getText().toString()),
                         description.getText().toString(), deadline, location.getText().toString());
-                intent.putExtra("newFavourr", favourr);
-
+                CreateFavourActivity.super.onBackPressed();
+//                MainActivity main = new MainActivity();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("goProfile", true);
+                startActivity(intent);
             }
         }
         );

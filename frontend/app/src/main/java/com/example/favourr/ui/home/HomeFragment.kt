@@ -14,15 +14,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.favourr.Favourr
-import com.example.favourr.ApiInterface
 import com.example.favourr.MainViewModel
 import com.example.favourr.R
 import com.example.favourr.databinding.FragmentHomeBinding
 import com.example.favourr.ui.ActiveFavourrItemAdapter
 import com.example.favourr.ui.AvailableFavourrItemAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
@@ -52,30 +48,14 @@ class HomeFragment : Fragment() {
         ssb.setSpan(StyleSpan(Typeface.BOLD), welcomeStr.indexOf('\n'), welcomeStr.length - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
         binding.welcomeBack.text = ssb
 
+        val favourrs = listOf<Favourr>()
         val activeFavourrsLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        val activeFavourrsAdapter = ActiveFavourrItemAdapter(listOf())
+        val activeFavourrsAdapter = ActiveFavourrItemAdapter(favourrs)
         binding.activeFavourrsRv.layoutManager = activeFavourrsLayoutManager
         binding.activeFavourrsRv.adapter = activeFavourrsAdapter
         val availableFavourrsLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        val availableFavourrsAdapter = AvailableFavourrItemAdapter(listOf())
+        val availableFavourrsAdapter = AvailableFavourrItemAdapter(favourrs)
         binding.availableFavourrsRv.layoutManager = availableFavourrsLayoutManager
         binding.availableFavourrsRv.adapter = availableFavourrsAdapter
-
-        val apiInterface = ApiInterface.create().getFavourrs()
-        apiInterface.enqueue(object : Callback<List<Favourr>> {
-            override fun onResponse(
-                call: Call<List<Favourr>>?,
-                response: Response<List<Favourr>>?
-            ) {
-                response?.body()?.let {
-                    activeFavourrsAdapter.setFavourrs(it)
-                    availableFavourrsAdapter.setFavourrs(it)
-                }
-            }
-
-            override fun onFailure(call: Call<List<Favourr>>?, t: Throwable?) {
-                // no-op
-            }
-        })
     }
 }
