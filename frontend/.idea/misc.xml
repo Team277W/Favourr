@@ -15,7 +15,10 @@
         <entry key="..\:/Users/miphc/Desktop/favor/frontend/app/src/main/res/layout/create_favourr_fragment.xml" value="0.1" />
         <entry key="..\:/Users/miphc/Desktop/favor/frontend/app/src/main/res/layout/fragment_dashboard.xml" value="0.12735042735042734" />
         <entry key="..\:/Users/miphc/Desktop/favor/frontend/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/miphc/Desktop/favor/frontend/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
         <entry key="..\:/Users/miphc/Desktop/favor/frontend/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/miphc/Desktop/favor/frontend/app/src/main/res/layout/item_active_favourr.xml" value="0.1346153846153846" />
+        <entry key="..\:/Users/miphc/Desktop/favor/frontend/app/src/main/res/layout/item_available_favourr.xml" value="0.1346153846153846" />
       </map>
     </option>
   </component>

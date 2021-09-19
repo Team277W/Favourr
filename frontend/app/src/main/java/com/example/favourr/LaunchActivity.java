@@ -65,6 +65,7 @@ public class LaunchActivity extends AppCompatActivity {
                         List<Address> addresses = gcd.getFromLocation(latitudeTextView,
                                 longitTextView, 1);
                         String cityName = addresses.get(0).getAddressLine(0);
+                        
                         intent.putExtra("Username", userName.getText());
                         intent.putExtra("Name", name.getText());
                         intent.putExtra("City", cityName.toLowerCase());
