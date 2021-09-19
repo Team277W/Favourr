@@ -45,6 +45,8 @@ class LocalFavourrsFragment : Fragment() {
             ) {
                 response?.body()?.let {
                     localFavourrsAdapter.setFavourrs(it.bounties)
+                    val city = if (it.bounties.isNotEmpty()) it.bounties[0].city.capitalize() else "Waterloo"
+                    binding.localFavourrsTitle.text = "Favourrs in " + city
                 }
             }
 

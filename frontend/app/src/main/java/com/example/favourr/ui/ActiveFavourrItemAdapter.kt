@@ -43,7 +43,7 @@ class ActiveFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
             var idList = ListIdData().idList
             binding.userIcon.setImageResource(idList[icIndex])
             binding.name.text = favourr.title
-            binding.price.text = "$" + favourr.cash.toString()
+            binding.price.text = String.format("$%.00f", favourr.cash)
             binding.root.setOnClickListener {
                 val intent = Intent(it.context, ViewFavourActivity::class.java)
                 intent.putExtra("FavourrData", favourr)

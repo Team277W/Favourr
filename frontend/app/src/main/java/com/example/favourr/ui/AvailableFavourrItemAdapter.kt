@@ -1,9 +1,7 @@
 package com.example.favourr.ui
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.favourr.ListIdData
@@ -53,7 +51,7 @@ class AvailableFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
             var idList = ListIdData().idList
             binding.userIcon.setImageResource(idList[icIndex])
             binding.name.text = favourr.title
-            binding.price.text = "$" + favourr.cash.toString()
+            binding.price.text = String.format("$%.00f", favourr.cash)
             binding.desc.text = favourr.body
             binding.root.setOnClickListener {
                 val intent = Intent(it.context, ViewFavourActivity::class.java)

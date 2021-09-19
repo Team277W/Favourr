@@ -54,6 +54,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.activeFavourrsTitle.visibility = View.GONE
+        binding.activeFavourrsRv.visibility = View.GONE
+        binding.availableFavourrsTitle.visibility = View.GONE
+        binding.availableFavourrsRv.visibility = View.GONE
+
         val welcomeStr = getString(R.string.welcome, mainViewModel.name.value)
         val ssb = SpannableStringBuilder(welcomeStr)
         ssb.setSpan(StyleSpan(Typeface.BOLD), welcomeStr.indexOf('\n'), welcomeStr.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
@@ -86,6 +91,12 @@ class HomeFragment : Fragment() {
         mainViewModel.encounteredFavourrs.observe(viewLifecycleOwner, Observer {
             availableFavourrsAdapter.setFavourrs(it)
             availableFavourrsAdapter.notifyDataSetChanged()
+            if (it.isNotEmpty()) {
+                binding.noActiveImg.visibility = View.GONE
+                binding.noActiveText.visibility = View.GONE
+                binding.availableFavourrsRv.visibility = View.VISIBLE
+                binding.availableFavourrsTitle.visibility = View.VISIBLE
+            }
         })
 
         val sharedPrefs = activity?.getSharedPreferences("LaunchPrefs", Context.MODE_PRIVATE)
@@ -98,6 +109,12 @@ class HomeFragment : Fragment() {
             ) {
                 response?.body()?.let {
                     activeFavourrsAdapter.setFavourrs(it.bounties)
+                    if (it.bounties.isNotEmpty()) {
+                        binding.noActiveImg.visibility = View.GONE
+                        binding.noActiveText.visibility = View.GONE
+                        binding.activeFavourrsRv.visibility = View.VISIBLE
+                        binding.activeFavourrsTitle.visibility = View.VISIBLE
+                    }
                 }
             }
 
