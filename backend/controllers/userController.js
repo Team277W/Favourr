@@ -53,7 +53,7 @@ const getUserAccepted = async (req, res, next) => {
     } catch (err) {
         next(err);
     }
-        
+    
     return res.json({ 
         userBountiesAccepted: user.bountiesAccepted,
         message: "Username" 
