@@ -28,7 +28,9 @@ class LocalFavourrsAdapter(private var favourrs: List<FavourrModel>) :
         favourrs = newFavourrs
         notifyDataSetChanged()
     }
-
+    fun getFlavourrs() : List<FavourrModel> {
+        return favourrs
+    }
     inner class LocalFavourrViewHolder(private val binding: ItemLocalFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(favourr: FavourrModel, icIndex: Int) {
             val idList = ListIdData().idList
