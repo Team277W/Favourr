@@ -31,12 +31,22 @@ import com.example.favourr.SwipeToDeleteCallback
 
 import androidx.recyclerview.widget.ItemTouchHelper
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), AvailableFavourrItemAdapter.VisibilityCallback {
 
     private lateinit var homeViewModel: HomeViewModel
     private val mainViewModel: MainViewModel by activityViewModels()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    override fun setVisible(isVisible: Boolean) {
+        if (isVisible) {
+            binding.activeFavourrsTitle.visibility = View.VISIBLE
+            binding.activeFavourrsRv.visibility = View.VISIBLE
+        } else {
+            binding.activeFavourrsTitle.visibility = View.GONE
+            binding.activeFavourrsRv.visibility = View.GONE
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -79,7 +89,7 @@ class HomeFragment : Fragment() {
         binding.activeFavourrsRv.layoutManager = activeFavourrsLayoutManager
         binding.activeFavourrsRv.adapter = activeFavourrsAdapter
         val availableFavourrsLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        val availableFavourrsAdapter = AvailableFavourrItemAdapter(listOf())
+        val availableFavourrsAdapter = AvailableFavourrItemAdapter(listOf(), this)
         binding.availableFavourrsRv.layoutManager = availableFavourrsLayoutManager
         binding.availableFavourrsRv.adapter = availableFavourrsAdapter
         val itemTouchHelper = ItemTouchHelper(SwipeToDeleteCallback(availableFavourrsAdapter, activeFavourrsAdapter, requireContext()))

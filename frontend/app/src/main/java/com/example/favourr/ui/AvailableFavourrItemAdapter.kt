@@ -9,7 +9,7 @@ import com.example.favourr.databinding.ItemAvailableFavourrBinding
 import com.example.favourr.models.FavourrModel
 import com.example.favourr.ui.home.ViewFavourActivity
 
-class AvailableFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
+class AvailableFavourrItemAdapter(private var favourrs: List<FavourrModel>, private val visibilityCallback: VisibilityCallback?) :
     RecyclerView.Adapter<AvailableFavourrItemAdapter.AvailableFavourrItemViewHolder>() {
 
 
@@ -30,6 +30,7 @@ class AvailableFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
 
     fun setFavourrs(newFavourrs: List<FavourrModel>) {
         favourrs = newFavourrs
+        visibilityCallback?.setVisible(newFavourrs.isNotEmpty())
         notifyDataSetChanged()
     }
 
@@ -45,6 +46,10 @@ class AvailableFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
 //        notifyItemRemoved(position)
 //        showUndoSnackbar()
 //    }
+
+    interface VisibilityCallback {
+        fun setVisible(isVisible: Boolean)
+    }
 
     inner class AvailableFavourrItemViewHolder(private val binding: ItemAvailableFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(favourr: FavourrModel, icIndex : Int) {
