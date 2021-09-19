@@ -2,6 +2,7 @@ package com.example.favourr.ui.home;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -53,7 +54,9 @@ public class CreateFavourActivity extends AppCompatActivity {
             Gson gson = new Gson();
             String json = gson.toJson(favourr);
             RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), json);
-            Call<FavourrModel> postFavourrService = ApiInterface.Companion.create().postFavourr(requestBody);
+            SharedPreferences sharedPrefs = getSharedPreferences("LaunchPrefs", MODE_PRIVATE);
+            String userId = sharedPrefs.getString("userId", "No user id");
+            Call<FavourrModel> postFavourrService = ApiInterface.Companion.create().postFavourr(userId, requestBody);
             postFavourrService.enqueue(new Callback<FavourrModel>() {
                 @Override
                 public void onResponse(Call<FavourrModel> call, Response<FavourrModel> response) {

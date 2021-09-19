@@ -16,10 +16,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.favourr.models.ProfileModel
+import com.example.favourr.network.ApiInterface
 import com.example.favourr.ui.profile.ProfileFragment
 import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.connection.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.nio.charset.StandardCharsets
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +49,9 @@ class MainActivity : AppCompatActivity() {
                 val endpoint = pendingConnections.remove(endpointId)
                 establishedConnections[endpointId] = endpoint
                 mainViewModel.setState(MainViewModel.State.CONNECTED)
-                val payload = Payload.fromBytes(USERNAME.toByteArray())
+                val sharedPrefs = getSharedPreferences("LaunchPrefs", MODE_PRIVATE)
+                val userId = sharedPrefs.getString("userId", "No user id") ?: ""
+                val payload = Payload.fromBytes(userId.toByteArray())
                 send(payload, establishedConnections.keys)
             }
         }
@@ -103,6 +110,23 @@ class MainActivity : AppCompatActivity() {
         val city = intent.extras?.getString("City") ?: sharedPrefs.getString("City", "No City") ?: ""
         mainViewModel.setName(name)
         mainViewModel.setCity(city)
+        mainViewModel.connectionId.observe(this, Observer {
+            val apiInterface = ApiInterface.create().getCreatedBounties(it)
+            apiInterface.enqueue(object : Callback<ProfileModel> {
+                override fun onResponse(
+                    call: Call<ProfileModel>?,
+                    response: Response<ProfileModel>?
+                ) {
+                    response?.body()?.let { profile ->
+                        mainViewModel.setEncounteredFavourrs(profile.bounties)
+                    }
+                }
+
+                override fun onFailure(call: Call<ProfileModel>?, t: Throwable?) {
+                    // no-op
+                }
+            })
+        })
     }
 
     override fun onStart() {
@@ -145,7 +169,6 @@ class MainActivity : AppCompatActivity() {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
-
 
     private fun startAdvertising() {
 
@@ -236,7 +259,6 @@ class MainActivity : AppCompatActivity() {
             locationPerm,
         )
         private const val REQUEST_CODE_REQUIRED_PERMS = 1
-        const val USERNAME = "TestUsername"
         const val NAME = "TestName"
         private const val SERVICE_ID = "com.team277.favourr.SERVICE_ID"
         private const val TAG = "com.team277.favourr.TAG"

@@ -31,7 +31,7 @@ public class ViewFavourActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         FavourrModel favourr = (FavourrModel) extras.getSerializable("FavourrData");
-        int id = (int) extras.getSerializable("icIndex");
+        int id = extras.getInt("icIndex");
 
         binding.icon.setImageResource(id);
         binding.titleBody.setText(favourr.getTitle());

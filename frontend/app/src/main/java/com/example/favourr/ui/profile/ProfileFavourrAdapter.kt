@@ -32,6 +32,7 @@ class ProfileFavourrAdapter(private var favourrs: List<FavourrModel>) :
             binding.name.text = favourr.title
             binding.price.text = "$" + favourr.cash.toString()
             binding.desc.text = favourr.body
+            binding.location.text = favourr.city.capitalize()
             binding.root.setOnClickListener {
                 val intent = Intent(it.context, ViewFavourActivity::class.java)
                 intent.putExtra("FavourrData", favourr)

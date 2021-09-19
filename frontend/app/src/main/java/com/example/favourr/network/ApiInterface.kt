@@ -12,8 +12,8 @@ interface ApiInterface {
     @GET("bounties/city/{city_name}")
     fun getCityFavourrs(@Path("city_name") cityName: String) : Call<CityModel>
 
-    @POST("bounties")
-    fun postFavourr(@Body body: RequestBody) : Call<FavourrModel>
+    @POST("bounties/{user_id}")
+    fun postFavourr(@Path("user_id)") user: String, @Body body: RequestBody) : Call<FavourrModel>
 
     @POST("users")
     fun postUser(@Body body: RequestBody) : Call<UserContainerModel>
@@ -25,8 +25,11 @@ interface ApiInterface {
         @Path("level") level: Int
     ): Call<UpdatedFavourrModel>
 
-    @GET("bounties/user/{user_id}")
-    fun getUserData(@Path("user_id") userId: String) : Call<ProfileModel>
+    @GET("bounties/accepted/{user_id}")
+    fun getAcceptedBounties(@Path("user_id") userId: String) : Call<ProfileModel>
+
+    @GET("bounties/created/{user_id}")
+    fun getCreatedBounties(@Path("user_id") userId: String) : Call<ProfileModel>
 
     companion object {
         private const val BASE_URL = "https://backend-rqj26lvvaa-uc.a.run.app/api/"
