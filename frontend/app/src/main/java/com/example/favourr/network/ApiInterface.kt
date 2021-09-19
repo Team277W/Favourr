@@ -13,7 +13,7 @@ interface ApiInterface {
     fun getCityFavourrs(@Path("city_name") cityName: String) : Call<CityModel>
 
     @POST("bounties/{user_id}")
-    fun postFavourr(@Path("user_id)") user: String, @Body body: RequestBody) : Call<FavourrModel>
+    fun postFavourr(@Path("user_id") user: String, @Body body: RequestBody) : Call<FavourrModel>
 
     @POST("users")
     fun postUser(@Body body: RequestBody) : Call<UserContainerModel>

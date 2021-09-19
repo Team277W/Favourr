@@ -54,6 +54,15 @@
         tools:listitem="@layout/item_active_favourr" />
 
     <TextView
+        android:id="@+id/no_active"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="You currently have no accepted favourrs."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/active_favourrs_title" />
+
+    <TextView
         android:id="@+id/available_favourrs_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,6 +83,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/available_favourrs_title"
         tools:listitem="@layout/item_available_favourr" />
+
+    <TextView
+        android:id="@+id/no_encountered"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="You currently have no encountered favourrs. Get outside to find new connections!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/available_favourrs_title" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/favour_button"

@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.favourr.ListIdData;
 import com.example.favourr.databinding.ActivityViewFavourBinding;
 import com.example.favourr.models.FavourrModel;
 import com.example.favourr.models.UpdatedFavourrModel;
@@ -33,7 +34,7 @@ public class ViewFavourActivity extends AppCompatActivity {
         FavourrModel favourr = (FavourrModel) extras.getSerializable("FavourrData");
         int id = extras.getInt("icIndex");
 
-        binding.icon.setImageResource(id);
+        binding.icon.setImageResource(new ListIdData().getIdList()[id]);
         binding.titleBody.setText(favourr.getTitle());
         binding.priceBody.setText(String.format(Locale.getDefault(), "$%.00f", favourr.getCash()));
         binding.descBody.setText(favourr.getBody());

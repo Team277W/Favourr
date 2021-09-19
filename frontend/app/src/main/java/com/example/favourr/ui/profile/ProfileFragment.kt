@@ -40,7 +40,7 @@ class ProfileFragment : Fragment() {
         binding.currentFavourrsRv.layoutManager = linearLayoutManager
 
         val sharedPrefs = activity?.getSharedPreferences("LaunchPrefs", Context.MODE_PRIVATE)
-        val apiInterface = ApiInterface.create().getAcceptedBounties(sharedPrefs?.getString("userId", "No user id") ?: "N/A")
+        val apiInterface = ApiInterface.create().getCreatedBounties(sharedPrefs?.getString("userId", "No user id") ?: "N/A")
         apiInterface.enqueue(object : Callback<ProfileModel> {
             override fun onResponse(call: Call<ProfileModel>?, response: Response<ProfileModel>?) {
                 if (response?.isSuccessful == true) {

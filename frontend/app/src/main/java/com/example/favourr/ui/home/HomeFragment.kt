@@ -31,9 +31,6 @@ import com.example.favourr.SwipeToDeleteCallback
 
 import androidx.recyclerview.widget.ItemTouchHelper
 
-
-
-
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
