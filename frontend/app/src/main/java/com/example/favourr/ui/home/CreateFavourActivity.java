@@ -46,6 +46,8 @@ public class CreateFavourActivity extends AppCompatActivity {
         });
         binding.contact.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         binding.submitButton.setOnClickListener(view -> {
+            SharedPreferences sharedPrefs = getSharedPreferences("LaunchPrefs", MODE_PRIVATE);
+            String userId = sharedPrefs.getString("userId", "No user id");
             FavourrModel favourr = new FavourrModel(
                     binding.favourTitle.getText().toString(),
                     binding.description.getText().toString(),
@@ -53,12 +55,11 @@ public class CreateFavourActivity extends AppCompatActivity {
                     binding.locationText.getText().toString(),
                     Double.parseDouble(binding.bountyPrice.getText().toString())
             );
+            favourr.setUser(userId);
             Gson gson = new Gson();
             String json = gson.toJson(favourr);
             RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), json);
-            SharedPreferences sharedPrefs = getSharedPreferences("LaunchPrefs", MODE_PRIVATE);
-            String userId = sharedPrefs.getString("userId", "No user id");
-            Call<FavourrModel> postFavourrService = ApiInterface.Companion.create().postFavourr(userId, requestBody);
+            Call<FavourrModel> postFavourrService = ApiInterface.Companion.create().postFavourr(requestBody);
             postFavourrService.enqueue(new Callback<FavourrModel>() {
                 @Override
                 public void onResponse(Call<FavourrModel> call, Response<FavourrModel> response) {

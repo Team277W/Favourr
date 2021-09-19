@@ -53,14 +53,27 @@
         app:layout_constraintTop_toBottomOf="@id/active_favourrs_title"
         tools:listitem="@layout/item_active_favourr" />
 
-    <TextView
-        android:id="@+id/no_active"
+    <ImageView
+        android:id="@+id/no_active_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="You currently have no accepted favourrs."
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_no_favourrs"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/active_favourrs_title" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/no_active_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="You have no favourrs right now. Continue going about your day to encounter more opportunities to complete favourrs."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/no_active_img" />
 
     <TextView
         android:id="@+id/available_favourrs_title"
@@ -83,16 +96,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/available_favourrs_title"
         tools:listitem="@layout/item_available_favourr" />
-
-    <TextView
-        android:id="@+id/no_encountered"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="You currently have no encountered favourrs. Get outside to find new connections!"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/available_favourrs_title" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/favour_button"
