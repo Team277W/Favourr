@@ -26,12 +26,13 @@ const createUser = async (req, res, next) => {
 }
 
 const getUser = async (req, res, next) => {
-    // let allBounties;
+    let allUsers;
     let user;
     try {
-        // allBounties = await Bounty.find();
+        allUsers = await User.find();
+        console.log(req.params.name)
         user = await User.findOne({ userName: req.params.name });
-        // console.log(allBounties);
+        console.log(allUsers);
     } catch (err) {
         next(err);
     }
@@ -80,5 +81,6 @@ module.exports = {
     get,
     getUserAccepted,
     getUserCreated,
-    getUser
+    getUser,
+    createUser
 };
