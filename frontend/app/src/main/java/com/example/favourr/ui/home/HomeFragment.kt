@@ -27,6 +27,12 @@ import com.example.favourr.ui.profile.ProfileFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.example.favourr.SwipeToDeleteCallback
+
+import androidx.recyclerview.widget.ItemTouchHelper
+
+
+
 
 class HomeFragment : Fragment() {
 
@@ -77,6 +83,8 @@ class HomeFragment : Fragment() {
         val availableFavourrsAdapter = AvailableFavourrItemAdapter(listOf())
         binding.availableFavourrsRv.layoutManager = availableFavourrsLayoutManager
         binding.availableFavourrsRv.adapter = availableFavourrsAdapter
+        val itemTouchHelper = ItemTouchHelper(SwipeToDeleteCallback(availableFavourrsAdapter, activeFavourrsAdapter))
+        itemTouchHelper.attachToRecyclerView(binding.availableFavourrsRv)
 
         mainViewModel.encounteredFavourrs.observe(viewLifecycleOwner, Observer {
             availableFavourrsAdapter.setFavourrs(it)

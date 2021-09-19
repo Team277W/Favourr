@@ -32,6 +32,10 @@ class ActiveFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
         notifyDataSetChanged()
     }
 
+    fun getFavourrs() : List<FavourrModel>{
+        return favourrs
+    }
+
     inner class ActiveFavourrItemViewHolder(private val binding: ItemActiveFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(favourr: FavourrModel, icIndex: Int) {
             var idList = ListIdData().idList
