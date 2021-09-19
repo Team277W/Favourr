@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.favourr.FavourrModel
 import com.example.favourr.ListIdData
+import com.example.favourr.models.FavourrModel
 import com.example.favourr.databinding.ItemAvailableFavourrBinding
 import com.example.favourr.ui.home.ViewFavourActivity
 

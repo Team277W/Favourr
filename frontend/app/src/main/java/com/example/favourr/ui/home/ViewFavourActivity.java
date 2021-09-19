@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.favourr.FavourrModel;
+import com.example.favourr.models.FavourrModel;
 import com.example.favourr.R;
 import com.example.favourr.databinding.ActivityViewFavourBinding;
 

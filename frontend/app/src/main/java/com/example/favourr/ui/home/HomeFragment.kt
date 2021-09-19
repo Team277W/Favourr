@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.favourr.*
 import com.example.favourr.databinding.FragmentHomeBinding
+import com.example.favourr.models.CityModel
 import com.example.favourr.network.ApiInterface
 import com.example.favourr.ui.ActiveFavourrItemAdapter
 import com.example.favourr.ui.AvailableFavourrItemAdapter
