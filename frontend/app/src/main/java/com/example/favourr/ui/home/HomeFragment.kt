@@ -109,7 +109,7 @@ class HomeFragment : Fragment() {
             ) {
                 response?.body()?.let {
                     activeFavourrsAdapter.setFavourrs(it.bounties)
-                    if (it.bounties.isNotEmpty()) {
+                    if (it.bounties?.isNotEmpty() == true) {
                         binding.noActiveImg.visibility = View.GONE
                         binding.noActiveText.visibility = View.GONE
                         binding.activeFavourrsRv.visibility = View.VISIBLE
