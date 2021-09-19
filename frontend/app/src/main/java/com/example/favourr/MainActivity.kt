@@ -16,7 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.favourr.ui.connections.ProfileFragment
+import com.example.favourr.ui.profile.ProfileFragment
 import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.connection.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -82,9 +82,9 @@ class MainActivity : AppCompatActivity() {
         if (createFavourr) {
             val newFragment: Fragment = ProfileFragment()
             val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.nav_host_fragment, newFragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+            transaction.replace(R.id.nav_host_fragment, newFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
 
         setContentView(R.layout.activity_main)
