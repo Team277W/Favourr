@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +44,7 @@ public class CreateFavourActivity extends AppCompatActivity {
                     (view1, year1, monthOfYear, dayOfMonth) -> deadline = new Date(year1, monthOfYear, dayOfMonth), year, month, day);
             picker.show();
         });
+        binding.contact.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         binding.submitButton.setOnClickListener(view -> {
             SharedPreferences sharedPrefs = getSharedPreferences("LaunchPrefs", MODE_PRIVATE);
             String userId = sharedPrefs.getString("userId", "No user id");

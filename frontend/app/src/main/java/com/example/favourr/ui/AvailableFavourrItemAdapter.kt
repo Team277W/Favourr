@@ -3,6 +3,7 @@ package com.example.favourr.ui
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.favourr.ListIdData
@@ -37,6 +38,7 @@ class AvailableFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
     fun getFavourrs() : List<FavourrModel>{
         return favourrs
     }
+
 
 //    fun deleteItem(position: Int) {
 //        mRecentlyDeletedItem = mListItems.get(position)
