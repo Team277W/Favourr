@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.favourr.FavourrModel
+import com.example.favourr.ListIdData
 import com.example.favourr.databinding.ItemActiveFavourrBinding
 import com.example.favourr.ui.home.ViewFavourActivity
 
@@ -20,7 +21,7 @@ class ActiveFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
     }
 
     override fun onBindViewHolder(holder: ActiveFavourrItemViewHolder, position: Int) {
-        val idx = (0..10).random()
+        val idx = (0..6).random()
         holder.bind(favourrs[position], idx)
     }
 
@@ -33,14 +34,14 @@ class ActiveFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
 
     inner class ActiveFavourrItemViewHolder(private val binding: ItemActiveFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(favourr: FavourrModel, icIndex: Int) {
-//            String iconFile = "@drawable/ic_profile" + icIndex.toString();
-//            binding.userIcon.src = iconFile
+            var idList = ListIdData().idList
+            binding.userIcon.setImageResource(idList[icIndex])
             binding.name.text = favourr.title
             binding.price.text = "$" + favourr.cash.toString()
             binding.root.setOnClickListener {
                 val intent = Intent(it.context, ViewFavourActivity::class.java)
                 intent.putExtra("FavourrData", favourr)
-                intent.putExtra("icIndex", icIndex)
+                intent.putExtra("icIndex", idList[icIndex])
                 it.context.startActivity(intent)
             }
         }
