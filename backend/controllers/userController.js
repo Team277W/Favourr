@@ -13,13 +13,25 @@ const get = (req, res, next) => {
     return res.json({ users: users });
 }
 
-const createUser = (req, res, next) => {
+const createUser = async (req, res, next) => {
+
+    console.log("📱📱📱📱📱")
+    console.log(req.body)
+
+    const users = await User.find({ userName: req.body.userName })
+
+    console.log("🍕")
+    console.log(users)
+
+    if(users.length != 0) {
+        return res.json({error: "Username taken"})
+    }
     
     const user = new User({
         userName: req.body.userName,
-        bountiesAccepted: req.body.bountiesAccepted,
-        bountiesCreated: req.body.bountiesCreated,
-        totalCash: req.body.cash
+        bountiesAccepted: [],
+        bountiesCreated: [],
+        totalCash: 0
     });
 
     user.save(function (err, data) {

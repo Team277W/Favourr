@@ -1,4 +1,5 @@
 const Bounty = require('../models/bounty');
+const User = require('../models/user');
 
 const getByCity = async (req, res, next) => {
     // let allBounties;
@@ -38,6 +39,8 @@ const createBounty = (req, res, next) => {
                 return res.json({ bounty: data });
             }
         });
+
+        // add to users created bounties
     } 
     catch (err) {
         return res.json({ error: err });
@@ -63,12 +66,28 @@ const getByUser = async (req, res, next) => {
 
 const updateStatus = async (req, res, next) => {
     let bountyToUpdate;
+    
     try {
+
+        console.log("✅")
+        console.log(req.params)
+
         bountyToUpdate = await Bounty.findByIdAndUpdate(
             req.params.id, 
             {status: req.params.level}, 
             {new: true}, 
             (err) => {return res.status(500).send(err);});
+
+        // update user
+        userToUpdate = await User.findByIdAndUpdate(
+            req.params.user, 
+            { $push: { bountiesCreated: req.params.id } }, 
+            {new: true}, 
+            (err) => {return res.status(500).send(err);});
+
+        console.log("◻️◻️◻️◻️◻️◻️◻️◻️◻️")
+        console.log(userToUpdate);
+
     } catch (err) {
         next(err);
     }

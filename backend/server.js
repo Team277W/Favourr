@@ -12,8 +12,8 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'));
-app.use('/api/bounties/', bountiesRoutes);
 
+app.use('/api/bounties/', bountiesRoutes);
 app.use('/api/users/', userRoutes);
 
 // require('dotenv').config();
@@ -21,6 +21,6 @@ app.use('/api/users/', userRoutes);
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
         console.log("DB Connected");
-        app.listen(process.env.PORT || 3000);
+        app.listen(process.env.PORT || 8080);
     })
     .catch((e) => console.log(e));

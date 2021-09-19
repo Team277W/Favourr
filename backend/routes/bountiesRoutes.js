@@ -7,7 +7,7 @@ router.post('/', controller.createBounty);
 router.get('/city/:city', controller.getByCity);
 router.get('/user/:user', controller.getByUser);
 
-router.put('/su/:level/id/:id', controller.updateStatus);
+router.put('/:user/:id/:level', controller.updateStatus);
 // router.get('/:id', controller.detailsBounty);
 // router.put('/:id', controller.editBounty);
 

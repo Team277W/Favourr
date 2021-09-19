@@ -2,17 +2,16 @@ import requests
 import json
 
 data = {
-    "title": '4 Loonies',
-    "body": 'zsdfxghj',
-    "contact": '234567',
-    "city": 'qwdfgbn',
-    "cash": 20
+    "userName": "Ashish",
+    "bountiesAccepted": [],
+    "bountiesCreated": [],
+    "totalCash": 0
 }
 
 # backend-rqj26lvvaa-uc.a.run.app
 
 x = requests.post(
-    url="http://127.0.0.1:3000/api/bounties/",
+    url="http://127.0.0.1:8080/api/users/",
     headers={'Content-Type': 'application/json'},
     data=json.dumps(data))
 
