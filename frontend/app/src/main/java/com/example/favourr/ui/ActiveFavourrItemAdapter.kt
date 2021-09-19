@@ -20,7 +20,8 @@ class ActiveFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
     }
 
     override fun onBindViewHolder(holder: ActiveFavourrItemViewHolder, position: Int) {
-        holder.bind(favourrs[position])
+        val idx = (0..10).random()
+        holder.bind(favourrs[position], idx)
     }
 
     override fun getItemCount(): Int = favourrs.size
@@ -31,12 +32,15 @@ class ActiveFavourrItemAdapter(private var favourrs: List<FavourrModel>) :
     }
 
     inner class ActiveFavourrItemViewHolder(private val binding: ItemActiveFavourrBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(favourr: FavourrModel) {
+        fun bind(favourr: FavourrModel, icIndex: Int) {
+//            String iconFile = "@drawable/ic_profile" + icIndex.toString();
+//            binding.userIcon.src = iconFile
             binding.name.text = favourr.title
             binding.price.text = "$" + favourr.cash.toString()
             binding.root.setOnClickListener {
                 val intent = Intent(it.context, ViewFavourActivity::class.java)
                 intent.putExtra("FavourrData", favourr)
+                intent.putExtra("icIndex", icIndex)
                 it.context.startActivity(intent)
             }
         }
