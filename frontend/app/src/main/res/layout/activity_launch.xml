@@ -7,6 +7,7 @@
     android:background="@color/background"
     tools:context=".LaunchActivity">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="277dp"
@@ -24,7 +25,7 @@
         android:id="@+id/goHome"
         android:layout_width="161dp"
         android:layout_height="60dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="100dp"
         android:backgroundTint="@color/theme"
         android:text="Get Started"
@@ -36,14 +37,15 @@
     <EditText
         android:id="@+id/UserName"
         android:layout_width="265dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="340dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="356dp"
         android:ems="10"
         android:hint="Enter Full Name"
         android:inputType="textPersonName"
+        android:textColor="#121212"
         android:textColorHint="#424242"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -55,6 +57,7 @@
         android:ems="10"
         android:hint="Enter User Name"
         android:inputType="textPersonName"
+        android:textColor="#FF121212"
         android:textColorHint="#424242"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"

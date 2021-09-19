@@ -2,26 +2,28 @@ package com.example.favourr
 
 import android.Manifest
 import android.content.Context
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.favourr.ui.connections.ProfileFragment
+import com.example.favourr.ui.profile.ProfileFragment
 import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.connection.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.nio.charset.StandardCharsets
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
-
 
     private lateinit var mainViewModel: MainViewModel
     private lateinit var connectionsClient: ConnectionsClient
@@ -29,7 +31,6 @@ class MainActivity : AppCompatActivity() {
     private val establishedConnections = HashMap<String, Endpoint?>()
     private val pendingConnections = HashMap<String, Endpoint>()
     private lateinit var sharedPrefs: SharedPreferences
-
     private val connectionLifecycleCallback = object : ConnectionLifecycleCallback() {
         override fun onConnectionInitiated(endpointId: String, connectionInfo: ConnectionInfo) {
             val endpoint = Endpoint(endpointId, connectionInfo.endpointName)
@@ -78,6 +79,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val createFavourr:Boolean = intent.getBooleanExtra("goProfile", false)
+        if (createFavourr) {
+            val newFragment: Fragment = ProfileFragment()
+            val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.nav_host_fragment, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
